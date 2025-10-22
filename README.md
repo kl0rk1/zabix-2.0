@@ -1,6 +1,6 @@
 <p align="center"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></p>
 
-## Инструкци по разворачиванию системы "Тестирование" с помощью docker
+## Инструкци по разворачиванию системы "Zabbix 2.0" с помощью docker
 
 * Перейдите в папку с проектом и создайте в корне файлик `.env` и папку `databases`
 * В файле `.env`  пропишите переменные
@@ -11,16 +11,16 @@
 4. В файле .env  пропишите переменные
 ```
 DB_PATH_HOST=./databases
-APP_PATH_HOST=./NIAC
+APP_PATH_HOST=./Zubbix
 APP_PATH_CONTAINER=/var/www/html/
 ```
-* Перейдите в папку `NIAC`, продублируйте файл `.env.example` и переименуйте его в `.env`
-* В файле `NIAC\.env` замените строки:
+* Перейдите в папку `Zubbix`, продублируйте файл `.env.example` и переименуйте его в `.env`
+* В файле `Zubbix\.env` замените строки:
 ```
 DB_CONNECTION=mysql
 DB_HOST=db
 DB_PORT=3306
-DB_DATABASE=niac_test
+DB_DATABASE=Zubbix
 DB_USERNAME=root
 DB_PASSWORD=123456
 ```
