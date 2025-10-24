@@ -1,6 +1,4 @@
-
 services:
-
   web:
     build: ./web
     environment:
@@ -8,9 +6,9 @@ services:
     volumes:
       - ${APP_PATH_HOST}:${APP_PATH_CONTAINER}
     ports:
-      - 8080:80
+      - "8081:80"    # Changed from 8080 to 8081 to avoid conflict
     working_dir: ${APP_PATH_CONTAINER}
-  
+
   db:
     image: mariadb:10.6
     restart: always
@@ -23,13 +21,13 @@ services:
     image: phpmyadmin
     restart: always
     ports:
-      - 6080:80
+      - "8080:80"    # Keep phpMyAdmin on port 8080
     environment:
-      - PMA_ARBITRARY=1
-  
+      - PMA_HOST=db  # Ensure this is correct
+
   composer:
     image: composer:2.5.3
     volumes:
       - ${APP_PATH_HOST}:${APP_PATH_CONTAINER}
     working_dir: ${APP_PATH_CONTAINER}
-    command: composer install
+    command: ["composer", "install"]
